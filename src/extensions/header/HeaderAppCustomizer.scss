@@ -1,11 +1,139 @@
-.app {
-  .top {
-      height:60px;
-      text-align:center;
-      line-height:2.5;
-      font-weight:bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+// set modern experience header as invisible
+.ms-compositeHeader {
+  display: none;
+}
+
+.fuse-header {
+    background-color: transparent;
+    padding: 5px 18px;
+    height: auto;
+}
+.fuse-header-titleArea {
+    width: 100%;
+    padding: 5px 0;
+    margin: 0;
+}
+.fuse-header-logoSlidesContainer {
+  float: left;
+  width: 66.66%;
+}
+.fuse-siteLogoContainer {
+  width: 33.33%;
+  float: left;
+  text-align: left;
+}
+.fuse-slides-container {
+  float: right !important;
+}
+@media screen and (max-width: 767px) {
+  .fuse-header-logoSlidesContainer {
+    float: left;
+    width: 100%;
   }
+  .fuse-siteLogoContainer {
+    width: 100%;
+    text-align: center;
+    float: left;
+  }
+  .fuse-slides-container {
+    float: right !important;
+    width: 100%;
+  }
+  .fuse-search-container {
+    float: left !important;
+    width: 100% !important;
+    text-align: center;
+  }
+}
+
+.fuse-weather-slides {
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #f15a29;
+  cursor: pointer;
+  width: 205px !important;
+  float: left !important;
+  min-height: 60px !important;
+}
+.fuse-weather-slides > div {
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #f15a29;
+  cursor: pointer;
+  width: 205px !important;
+  z-index: 1 !important;
+}
+.fuse-weather-slides > div > img {
+  margin-right: 15px;
+  border: none;
+  float: left;
+}
+.fuse-weather-data {
+  position: relative;
+  top: 12px;
+  float: left;
+}
+.fuse-stock-slides {
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #f15a29;
+  cursor: pointer;
+  float: right !important;
+  height: 32px;
+  min-width: 145px !important;
+  position: relative;
+  top: 12px;
+  left: 6px;
+}
+.fuse-stock-slides > div {
+  width: inherit !important;
+}
+.fuse-search-container {
+  float: right;
+  width: 33.33%;
+  text-align: right;
+}
+.fuse-searchBoxControl {
+  border: 1px solid #ababab;
+  display: inline-block;
+  margin: 13px -6px 0 0;
+}
+.fuse-searchBoxControl input{
+  height: 16px;
+  width: 150px;
+  background-color: #fff !important;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+  color: #000 !important;
+  border-style: none;
+}
+.fuse-searchBoxControl input:focus {
+  border-style: none;
+  outline-style: none;
+}
+.fuse-searchBoxControl>a,a:active {
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: top;
+  background-color: transparent;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  margin-left: -1px;
+  height: 20px;
+  width: 20px;
+  color: #08a9bf;
+  text-decoration: none;
+}
+
+
+.fuse-searchBoxControl>a>img{
+ position: absolute;
+ border: 0px;
+ vertical-align: middle;
+ left: -35px;
+ top: -57px;
+}
+.fuse-searchBoxControl>a>img:hover {
+  left: -1px;
+  top: -69px;
+}
