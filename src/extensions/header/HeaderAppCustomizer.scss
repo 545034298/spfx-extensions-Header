@@ -137,3 +137,451 @@
   left: -1px;
   top: -69px;
 }
+.clear{
+  clear: both;
+}
+/*************************************/
+/* Section 1.2 - Initialize Control CSS - Begin*/
+/*************************************/
+/*
+                Set the pseudo content that identifies what the current responsive state is.
+                This is used for the MegaMenu JavaScript. The JS, on resize
+                and orientation change fires an event and looks for a change
+                on this pseudo attribute content value to rebuild the
+                MegaMenu in either 'desktop' mode or 'mobile' mode.
+                */
+                .fuse-Header-MegaMenu-PseudoStatus:before {
+                  content: 'desktop';
+                  visibility: hidden;
+                  position: absolute;
+                  left: -9000px;
+                  top: -9000px;
+                }
+                /*************************************/
+                /* Section 1.2 - Initialize Control CSS - End*/
+                /*************************************/
+                /*************************************/
+                /* Section 1.3 - Fuse Overrides CSS - Begin*/
+                /*************************************/
+                .navbar-default .navbar-toggle,
+                .navbar-default .navbar-toggle:hover,
+                .navbar-default .navbar-toggle:focus {
+                  background-color: #ddd;
+                }
+                /*************************************/
+                /* Section 1.3 - Fuse Overrides CSS - End*/
+                /*************************************/
+                /*************************************/
+                /* Section 3.1.1 - Desktop HTML Creation from JSON Data CSS - Begin*/
+                /*************************************/
+                /*
+                                The background color of each Top Level Desktop item is identified here.
+                                We chose to configure it here in the CSS, instead of on the list item to allow
+                                greater flexibility in the future if different styling for each item needs to be implemented.
+                                The Top Level items should not change often enough to warrant the additional logic for including
+                                the configuration on each list item.
+                                */
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item0,
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item1,
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item2,
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item3,
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item4 {
+                  background-color: #27618e;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item5,
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item6,
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item7 {
+                  background: #34845c;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-Wrapper li {
+                  background: black;
+                }
+                /*
+                                The percentage width for the Top Level items is dependent on how many items there are. The HTML includes
+                                a classname, with a item count that identifies how many total menu items are present. We use this to create
+                                a collection of styles that will always dynamically assign the correct percentage width.
+                                NOTE:	If you end up using more items then we have factored in here, then the width will not be set correctly, but
+                                    if that many items are being used, it's likely not very useable.
+                                */
+                /* -- Dynamic Width Begin -- */
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems1 li {
+                  width: 100%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems2 li {
+                  width: 50%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems3 li {
+                  width: 33%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems4 li {
+                  width: 25%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems5 li {
+                  width: 20%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems6 li {
+                  width: 16.6%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems7 li {
+                  width: 14.25%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems8 li {
+                  width: 12.5%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems9 li {
+                  width: 11.1%;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-TotalItems10 li {
+                  width: 10.0%;
+                }
+                /* -- Dynamic Width End -- */
+                .fuse-MegaMenu-Desktop-FirstLevel-Wrapper {
+                  zdisplay: inline-block;
+                  height: 60px;
+                  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#27618e+0,27618e+50,34845c+51,34845c+100,34845c+100 */
+                  background: #000000;
+                  background: -moz-linear-gradient(left, #000000 0%, #000000 50%, #000000 50%, #000000 100%, #000000 100%);
+                  /* FF3.6-15 */
+                  background: -webkit-linear-gradient(left, #000000 0%, #000000 50%, #000000 50%, #000000 100%, #000000 100%);
+                  /* Chrome10-25,Safari5.1-6 */
+                  background: linear-gradient(to right, #000000 0%, #000000 50%, #000000 50%, #000000 100%, #000000 100%);
+                  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000 ', endColorstr='#000000 ', GradientType=1);
+                  /* IE6-9 */
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-Wrapper ul,
+                .fuse-MegaMenu-Desktop-FirstLevel-Wrapper ul li {
+                  list-style: none;
+                  padding: 0px;
+                  margin: 0px;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-Wrapper ul li {
+                  display: block;
+                  float: left;
+                  height: 60px;
+                  color: #ffffff;
+                  font-size: 19px;
+                  line-height: 50px;
+                  cursor: pointer;
+                  -webkit-box-shadow: inset 0px -25px 20px -20px rgba(50, 50, 50, 0.5);
+                  -moz-box-shadow: inset 0px -25px 20px -20px rgba(50, 50, 50, 0.5);
+                  box-shadow: inset 0px -25px 20px -20px rgba(50, 50, 50, 0.5);
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-Wrapper ul li a {
+                  color: #ffffff;
+                }
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item {
+                  padding: 0 20px;
+                  display: block;
+                  height: 60px;
+                  outline: none;
+                  font-family: 'Raleway', sans-serif;
+                  font-size: 18px;
+                  text-transform: uppercase;
+                  font-weight: 900;
+                  text-decoration: none;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Container {
+                  display: none;
+                  background: #fff;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Container-ColumnCount1 .fuse-MegaMenu-Desktop-SecondLevel-Column-Wrapper {
+                  width: 100%;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Container-ColumnCount2 .fuse-MegaMenu-Desktop-SecondLevel-Column-Wrapper {
+                  width: 50%;
+                  float: left;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Container-ColumnCount3 .fuse-MegaMenu-Desktop-SecondLevel-Column-Wrapper {
+                  width: 33%;
+                  float: left;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Columns-Master-Wrapper:after,
+                .fuse-MegaMenu-Desktop-SecondLevel-Container:after {
+                  display: block;
+                  content: '';
+                  clear: both;
+                }
+                /* Hover State */
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item:hover {
+                  background: #f15a29;
+                  color: #ffffff;
+                }
+                /* Opened State */
+                .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item-Open {
+                  background: #f15a29;
+                  color: #ffffff;
+                  -webkit-box-shadow: inset 0px -25px 20px -20px rgba(50, 50, 50, 0.5);
+                  -moz-box-shadow: inset 0px -25px 20px -20px rgba(50, 50, 50, 0.5);
+                  box-shadow: inset 0px -25px 20px -20px rgba(50, 50, 50, 0.5);
+                }
+                /*************************************/
+                /* Section 3.1.1 - Desktop HTML Creation from JSON Data CSS - End*/
+                /*************************************/
+                /*************************************/
+                /* Section 3.1.1.2 - Second Level Desktop HTML Creation from JSON Data CSS - Begin*/
+                /*************************************/
+                .fuse-MegaMenu-Desktop-SecondLevel-Container {
+                  padding: 20px 5%;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Group-Wrapper {
+                  margin-bottom: 12px;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Group-Header,
+                .fuse-MegaMenu-Desktop-SecondLevel-Group-Header a {
+                  font-family: 'Raleway', sans-serif;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  font-size: 16px;
+                  line-height: 17px;
+                  color: #f15a29;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Group-Items-Link a {
+                  font-family: 'Raleway', sans-serif;
+                  font-weight: 400;
+                  font-size: 14px;
+                  line-height: 15px;
+                  margin-bottom: 7px;
+                  color: #464646;
+                }
+                .fuse-MegaMenu-Desktop-SecondLevel-Group-Header .fa,
+                .fuse-MegaMenu-Desktop-SecondLevel-Group-Item .fa {
+                  margin-right: 10px;
+                }
+                /*************************************/
+                /* Section 3.1.1.2 - Second Level Desktop HTML Creation from JSON Data CSS - End*/
+                /*************************************/
+                /*************************************/
+                /* Section 3.1.2 - Mobile HTML Creation from JSON Data CSS - Begin*/
+                /*************************************/
+                /* Mobile */
+                /*
+                                Onload we hide the SecondLevel Containers. This includes the Headers and the
+                                MenuGroup Group Wrappers.
+                                */
+                .fuse-MegaMenu-Mobile-SecondLevel-Container {
+                  display: none;
+                }
+                /*
+                                Onload we need to hide the group items wrapper.
+                                This is the actual collection of MegaMenu Links that will
+                                expand and open once the GroupHeader is clicked.
+                                */
+                /*************************************/
+                /* Section 3.1.2 - Mobile HTML Creation from JSON Data CSS - End*/
+                /*************************************/
+                /*************************************/
+                /* Section 3.1.2.1 - First Level - Mobile HTML Creation from JSON Data CSS - Begin*/
+                /*************************************/
+                .fuse-MegaMenu-Mobile-Master-Wrapper ul,
+                .fuse-MegaMenu-Mobile-Master-Wrapper li {
+                  margin: 0px;
+                  padding: 0px;
+                  list-style: none;
+                }
+                /* First Family Wrapper */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper {
+                  border-bottom: 1px solid #f3f3f3;
+                  padding-left: 22px;
+                  background: #ffffff;
+                }
+                /* Top Level */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li > .fuse-MegaMenu-Mobile-ItemTitle-Parent,
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li > .fuse-MegaMenu-Mobile-ItemTitle a {
+                  height: 44px;
+                  line-height: 44px;
+                  display: block;
+                  font-size: 21px;
+                  font-family: 'Raleway', sans-serif;
+                  cursor: pointer;
+                  font-weight: 900;
+                  padding-left: 0px;
+                  color: #f15a29;
+                }
+                /* Top Level Links */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li > .fuse-MegaMenu-Mobile-ItemTitle a {
+                  border-bottom: 1px solid #f3f3f3;
+                  padding-left: 22px;
+                  background: #ffffff;
+                }
+                /* Top Level - Open Icon */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper-FolderStatus-Open > .fuse-MegaMenu-Mobile-ItemTitle-Parent:after {
+                  content: '\f078';
+                  font-family: 'Raleway', sans-serif;
+                  font-size: 17px;
+                  display: inline-block;
+                  float: right;
+                  margin-right: 15px;
+                  color: #f15a29;
+                }
+                /* Top Level - Closed Icon */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper-FolderStatus-Closed > .fuse-MegaMenu-Mobile-ItemTitle-Parent:after {
+                  content: '\f054';
+                  font-family: 'Raleway', sans-serif;
+                  font-size: 17px;
+                  display: inline-block;
+                  float: right;
+                  margin-right: 15px;
+                  color: #f15a29;
+                }
+                /*************************************/
+                /* Section 3.1.2.1 - First Level - Mobile HTML Creation from JSON Data CSS - End*/
+                /*************************************/
+                /*************************************/
+                /* Section 3.1.2.2 - Second Level - Mobile HTML Creation from JSON Data CSS - Begin*/
+                /*************************************/
+                /* This hides the Second Level Headers and Links on load */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper-FolderStatus-Closed > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper {
+                  display: none;
+                }
+                /* Second Family Wrapper */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper,
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li {
+                  padding-left: 40px;
+                  padding-top: 10px;
+                  padding-bottom: 15px;
+                  background: #ffffff;
+                }
+                /* Second Level Header*/
+                .fuse-MegaMenu-Mobile-ItemTitle-Parent {
+                  font-family: 'Raleway', sans-serif;
+                  font-weight: bold;
+                  font-size: 18px;
+                  color: #f15a29;
+                }
+                /* Second Level Header - Color */
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper div.fuse-MegaMenu-Mobile-ItemTitle.fuse-MegaMenu-Mobile-ItemTitle-Parent a {
+                  color: #f15a29;
+                }
+                .fuse-MegaMenu-Mobile-ItemTitle .fa {
+                  margin-right: 10px;
+                }
+                /*************************************/
+                /* Section 3.1.2.2 - Second Level - Mobile HTML Creation from JSON Data CSS - End*/
+                /*************************************/
+                /*************************************/
+                /* Section 3.1.2.3 - Third Level - Mobile HTML Creation from JSON Data CSS - Begin*/
+                /*************************************/
+                .fuse-MegaMenu-Mobile-Master-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper > li.fuse-MegaMenu-Mobile-Family-Wrapper > ul.fuse-MegaMenu-Mobile-Family-Branch-Wrapper a {
+                  font-family: 'Raleway', sans-serif;
+                  color: #464646;
+                }
+                /*************************************/
+                /* Section 3.1.2.3 - Third Level - Mobile HTML Creation from JSON Data CSS - End*/
+                /*************************************/
+                /******************************************************************************************************/
+                /**** RESPONSIVE MEDIA QUERIES - BEGIN *****/
+                /******************************************************************************************************/
+                /*******************************************************************/
+                /* Responsive Media Query 320px - 479px - CSS - Begin*/
+                /*******************************************************************/
+                @media screen and (min-width: 0px) and (max-width: 479px) {
+                  .fuse-MegaMenu-Mobile-Master-Wrapper {
+                    display: none;
+                  }
+                  /*
+                                    This is used for the MegaMenu JavaScript. The JS, on resize
+                                    and orientation change fires an event and looks for a change
+                                    on this pseudo attribute content value to rebuild the
+                                    MegaMenu in either 'desktop' mode or 'mobile' mode.
+                                    */
+                  .fuse-Header-MegaMenu-PseudoStatus:before {
+                    content: 'mobile';
+                  }
+                  /* Shadowing around top of Mega Menu */
+                  .fuse-MegaMenu-Mobile-Master-Wrapper {
+                    -webkit-box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    -moz-box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    margin-top: 15px;
+                  }
+                }
+                /*******************************************************************/
+                /* Responsive Media Query 320px - 479px - CSS - End*/
+                /*******************************************************************/
+                /*******************************************************************/
+                /* Responsive Media Query 480px - 599px - CSS - Begin*/
+                /*******************************************************************/
+                @media screen and (min-width: 480px) and (max-width: 599px) {
+                  .fuse-MegaMenu-Mobile-Master-Wrapper {
+                    display: none;
+                  }
+                  /*
+                                    This is used for the MegaMenu JavaScript. The JS, on resize
+                                    and orientation change fires an event and looks for a change
+                                    on this pseudo attribute content value to rebuild the
+                                    MegaMenu in either 'desktop' mode or 'mobile' mode.
+                                    */
+                  .fuse-Header-MegaMenu-PseudoStatus:before {
+                    content: 'mobile';
+                  }
+                  /* Shadowing around top of Mega Menu */
+                  .fuse-MegaMenu-Mobile-Master-Wrapper {
+                    -webkit-box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    -moz-box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    margin-top: 15px;
+                  }
+                }
+                /*******************************************************************/
+                /* Responsive Media Query 480px - 599px - CSS - End*/
+                /*******************************************************************/
+                /*******************************************************************/
+                /* Responsive Media Query 600px - 767px - CSS - Begin*/
+                /*******************************************************************/
+                @media screen and (min-width: 600px) and (max-width: 767px) {
+                  .fuse-MegaMenu-Mobile-Master-Wrapper {
+                    display: none;
+                  }
+                  /*
+                                    This is used for the MegaMenu JavaScript. The JS, on resize
+                                    and orientation change fires an event and looks for a change
+                                    on this pseudo attribute content value to rebuild the
+                                    MegaMenu in either 'desktop' mode or 'mobile' mode.
+                                    */
+                  .fuse-Header-MegaMenu-PseudoStatus:before {
+                    content: 'mobile';
+                  }
+                  /* Shadowing around top of Mega Menu */
+                  .fuse-MegaMenu-Mobile-Master-Wrapper {
+                    -webkit-box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    -moz-box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    box-shadow: 0px -10px 20px -9px rgba(50, 50, 50, 0.5);
+                    margin-top: 15px;
+                  }
+                }
+                /*******************************************************************/
+                /* Responsive Media Query 600px - 767px - CSS - End*/
+                /*******************************************************************/
+                /*******************************************************************/
+                /* Responsive Media Query 768px - 899px - CSS - Begin*/
+                /*******************************************************************/
+                @media screen and (min-width: 768px) and (max-width: 899px) {
+                  /* Desktop First Level */
+                  .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                  }
+                  .fuse-MegaMenu-Desktop-FirstLevel-Wrapper ul li {
+                    font-size: 16px;
+                  }
+                }
+                /*******************************************************************/
+                /* Responsive Media Query 768px - 899px - CSS - End*/
+                /*******************************************************************/
+                /*******************************************************************/
+                /* Responsive Media Query 900px - 1225px - CSS - Begin*/
+                /*******************************************************************/
+                @media screen and (min-width: 900px) and (max-width: 1225px) {
+                  /* Desktop First Level */
+                  .fuse-MegaMenu-Desktop-FirstLevel-Menu-Item {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                  }
+                }
+                /*******************************************************************/
+                /* Responsive Media Query 900px - 1225px - CSS - End*/
+                /*******************************************************************/
+                /******************************************************************************************************/
+                /**** RESPONSIVE MEDIA QUERIES - END *****/
+                /******************************************************************************************************/
