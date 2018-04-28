@@ -4,12 +4,13 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://catsysdemo.sharepoint.com/sites/FuseDevRogerZhangModernCommunication001/SitePages/Home.aspx",
       "customActions": {
         "2a2ff56b-a394-46fc-a7e7-d6d371578397": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
-            "testMessage": "Test message"
+            "stockJsonFileRelativeUri": "/data/fuse-html-stock.html",
+            "weatherJsonFilerelativeUri":"/data/fuse-js-weather-json.js"
           }
         }
       }
