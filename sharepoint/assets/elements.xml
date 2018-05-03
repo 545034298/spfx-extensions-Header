@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="Header"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ClientSideComponentId="2a2ff56b-a394-46fc-a7e7-d6d371578397"
+        ClientSideComponentProperties="{&quot;stockJsonFileRelativeUri&quot;: &quot;/data/fuse-html-stock.html&quot;,
+&quot;weatherJsonFilerelativeUri&quot;:&quot;/data/fuse-js-weather-json.js&quot;}">
+    </CustomAction>
+</Elements>

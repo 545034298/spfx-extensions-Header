@@ -58,7 +58,7 @@ export default class HeaderApplicationCustomizer
             if (this._headerContent.domElement) {
                 require('./HeaderAppCustomizer.scss');
                 this._headerContent.domElement.innerHTML = `
-                <div class="fuse-header">
+            <div class="fuse-header">
                 <div class="fuse-header-titleArea">
                     <div class="fuse-header-logoSlidesContainer">
                         <div class="fuse-siteLogoContainer">
@@ -68,36 +68,12 @@ export default class HeaderApplicationCustomizer
                         </div>
                         <div class="fuse-slides-container">
                             <div class="fuse-weather-slides" style="position: relative; overflow: hidden;">
-                                <div style="position: absolute; top: 60px; left: 0px; display: none; z-index: 8; opacity: 1;">
-                                    <img alt="Weather Image" src="https://openweathermap.org/img/w/01n.png">
-                                    <span class="fuse-weather-data">4 °C / 39 °F 11:52pm
-                                        <br>New York, US
-                                        <br>
-                                        <span id="fuse-text-openweathermap" style="font-size:10px">OpenWeatherMap</span>
-                                    </span>
-                                </div>
-                                <div style="position: absolute; top: 60px; left: 0px; display: none; z-index: 8; opacity: 1; width: 205px; height: 47px;">
-                                    <img alt="Weather Image" src="https://openweathermap.org/img/w/02n.png">
-                                    <span class="fuse-weather-data">14 °C / 58 °F 10:52pm
-                                        <br>Austin, US
-                                        <br>
-                                        <span id="fuse-text-openweathermap" style="font-size:10px">OpenWeatherMap</span>
-                                    </span>
-                                </div>
                             </div>
                             <div class="fuse-stock-slides" style="overflow: hidden;">
-                                <div style="position: absolute; top: 32px; left: 0px; display: none; z-index: 4; opacity: 1; width: 145px; height: 31px;">ADS ($0.14) (-0.07 %) $203.96</div>
-                                <div style="position: absolute; top: 0px; left: 0px; display: block; z-index: 5; opacity: 1; width: 145px; height: 31px;">MSFT ($0.33) (-0.35 %) $94.26</div>
                             </div>
                         </div>
                     </div>
                     <div class="fuse-search-container">
-                        <div class="fuse-searchBoxControl">
-                            <input title="Search..." type="search" placeholder="Search..." />
-                            <a role="button">
-                                <img alt="Search" src="/_layouts/15/images/searchresultui.png?rev=44#ThemeKey=searchresultui">
-                            </a>
-                        </div>
                     </div>
                     <div class="clear" />
                 </div>
@@ -105,7 +81,7 @@ export default class HeaderApplicationCustomizer
                     <div class="menu">
                         <ul>
                             <li>
-                                <a href="#">Home</a>
+                                <a href="${this.context.pageContext.site.absoluteUrl}">Home</a>
                             </li>
                             <li>
                                 <a href="#">Corporate</a>
@@ -167,7 +143,7 @@ export default class HeaderApplicationCustomizer
                                 <a href="#">Operations</a>
                                 <ul>
                                     <li>
-                                        <a>Services</a>
+                                        <a href="#">Services</a>
                                     </li>
                                 </ul>
                             </li>
@@ -183,7 +159,7 @@ export default class HeaderApplicationCustomizer
             </div>
       `;
                 this._renderSiteLogo();
-                //this._renderSearchControl();
+                this._renderSearchControl();
                 this._renderStockSlides();
                 this._renderWeatherSlides();
                 this._renderMegaMenu();
@@ -196,11 +172,21 @@ export default class HeaderApplicationCustomizer
         $('.fuse-siteLogo-link').attr('href', this.context.pageContext.web.serverRelativeUrl);
     }
     private _renderSearchControl(): void {
-        var compositeHeader = $('.ms-compositeHeader').prop("outerHTML");
-        $('.ms-compositeHeader').remove();
-        $('.fuse-search-container').html(compositeHeader);
-        $('.ms-compositeHeader-headerAndNavContainer').hide();
-        $('ms-compositeHeader-addnCommands').hide();
+        $(document).ready(function () {
+            var loadingInternal = setInterval(function () {
+                var children = $('.ms-compositeHeader-searchBoxContainer').children();
+                if (children.length > 0) {
+                    var compositeHeader = $('.ms-compositeHeader-searchBoxContainer').prop("outerHTML");
+                    $('.fuse-search-container').html(compositeHeader);
+                    clearInterval(loadingInternal);
+                    $(".fuse-search-container form").submit(function (event) {
+                        var searchValue = $(".fuse-search-container form input").val();
+                        window.location.href = '/_layouts/15/search.aspx/siteall?q=' + searchValue;
+                        event.preventDefault();
+                    });
+                }
+            }, 500);
+        });
     }
     private _renderStockSlides(): void {
         $('.fuse-stock-slides').empty();
@@ -235,7 +221,7 @@ export default class HeaderApplicationCustomizer
             $(".menu-mobile").click(function (e) {
                 $(".menu > ul").toggleClass('show-on-mobile');
                 e.preventDefault();
-            })
+            });
         });
     }
     private _renderWeatherSlides(): void {
