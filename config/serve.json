@@ -9,8 +9,8 @@
         "2a2ff56b-a394-46fc-a7e7-d6d371578397": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
-            "stockJsonFileRelativeUri": "/data/fuse-html-stock.html",
-            "weatherJsonFilerelativeUri":"/data/fuse-js-weather-json.js"
+            "stockJsonFileRelativeUri": "/FuseCustomer/data/fuse-html-stock.html",
+            "weatherJsonFilerelativeUri":"/FuseCustomer/data/fuse-js-weather-json.js"
           }
         }
       }

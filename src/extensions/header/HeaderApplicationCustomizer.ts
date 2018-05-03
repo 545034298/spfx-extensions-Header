@@ -30,7 +30,6 @@ export interface IHeaderApplicationCustomizerProperties {
 export default class HeaderApplicationCustomizer
     extends BaseApplicationCustomizer<IHeaderApplicationCustomizerProperties> {
     private _headerContent: PlaceholderContent | undefined;
-
     @override
     public onInit(): Promise<void> {
         Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
@@ -87,53 +86,36 @@ export default class HeaderApplicationCustomizer
                                 <a href="#">Corporate</a>
                                 <ul>
                                     <li>
-                                        <a href="#">Departments</a>
+                                        <a href="${this.context.pageContext.site.absoluteUrl}/depts">Departments</a>
                                         <ul>
                                             <li>
-                                                <a href="#">Human Resources</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/depts/hr">Human Resources</a>
                                             </li>
                                             <li>
-                                                <a href="#">IT</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/depts/it">IT</a>
                                             </li>
                                             <li>
-                                                <a href="#">Accounting</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/depts/Accounting">Accounting</a>
                                             </li>
                                             <li>
-                                                <a href="#">Marketing</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/depts/Marketing">Marketing</a>
                                             </li>
                                             <li>
-                                                <a href="#">Fun Committee</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/depts/FunCommittee">Fun Committee</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#">Offices</a>
+                                        <div class="menu-subMenugroup">About</div>
                                         <ul>
                                             <li>
-                                                <a href="#">Austin</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/SitePages/OurHistory.aspx">Our History</a>
                                             </li>
                                             <li>
-                                                <a href="#">Phoenix</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/SitePages/CoreValues.aspx">Core Values</a>
                                             </li>
                                             <li>
-                                                <a href="#">Baltimore</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Communities</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">About</a>
-                                        <ul>
-                                            <li>
-                                                <a href="#">Our History</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Core Values</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">LeaderShip Team</a>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/SitePages/LeaderShipTeam.aspx">LeaderShip Team</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -143,23 +125,51 @@ export default class HeaderApplicationCustomizer
                                 <a href="#">Operations</a>
                                 <ul>
                                     <li>
-                                        <a href="#">Services</a>
+                                        <a href="${this.context.pageContext.site.absoluteUrl}/services">Services</a>
+                                        <ul>
+                                            <li>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/services/SitePages/EmergencyManagement.aspx">Emergency Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/services/SitePages/CommunityDevelopment.aspx">Community Development</a>
+                                            </li>
+                                            <li>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/services/SitePages/InternationalRelief.aspx">International Relief</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Locations</a>
+                                <a href="#">Offices</a>
+                                <ul>
+                                    <li>
+                                        <div class="menu-subMenugroup">Offices</div>
+                                        <ul>
+                                            <li>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/SitePages/Austin.aspx">Austin</a>
+                                            </li>
+                                            <li>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/SitePages/Phoenix.aspx">Phoenix</a>
+                                            </li>
+                                            <li>
+                                                <a href="${this.context.pageContext.site.absoluteUrl}/SitePages/Baltimore.aspx">Baltimore</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <a href="#">HelpCenter</a>
+                                <a href="${this.context.pageContext.site.absoluteUrl}/SitePages/HelpCenter.aspx">HelpCenter</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
       `;
+                this._setCompositeHeaderVisibility(false);
                 this._renderSiteLogo();
-                this._renderSearchControl();
+                this._renderSearchControl(this.context.pageContext.site.absoluteUrl);
                 this._renderStockSlides();
                 this._renderWeatherSlides();
                 this._renderMegaMenu();
@@ -169,28 +179,39 @@ export default class HeaderApplicationCustomizer
     private _renderSiteLogo(): void {
         $('.fuse-siteLogo-Img').attr('src', this.context.pageContext.web.logoUrl);
         $('.fuse-siteLogo-Img').attr('alt', this.context.pageContext.web.title);
-        $('.fuse-siteLogo-link').attr('href', this.context.pageContext.web.serverRelativeUrl);
+        $('.fuse-siteLogo-link').attr('href', this.context.pageContext.site.serverRelativeUrl);
     }
-    private _renderSearchControl(): void {
-        $(document).ready(function () {
-            var loadingInternal = setInterval(function () {
-                var children = $('.ms-compositeHeader-searchBoxContainer').children();
-                if (children.length > 0) {
-                    var compositeHeader = $('.ms-compositeHeader-searchBoxContainer').prop("outerHTML");
-                    $('.fuse-search-container').html(compositeHeader);
-                    clearInterval(loadingInternal);
-                    $(".fuse-search-container form").submit(function (event) {
-                        var searchValue = $(".fuse-search-container form input").val();
-                        window.location.href = '/_layouts/15/search.aspx/siteall?q=' + searchValue;
-                        event.preventDefault();
-                    });
+    private _setCompositeHeaderVisibility(isVisible: boolean): void {
+        var compositeHeaderInterval = setInterval(function () {
+            var header = $('.ms-compositeHeader');
+            if (header.length > 0) {
+                if (isVisible) {
+                    $('.ms-compositeHeader').show();
+                } else {
+                    $('.ms-compositeHeader').hide();
                 }
-            }, 500);
-        });
+            }
+        }, 100);
+    }
+    private _renderSearchControl(webAbsoluteUrl: string): void {
+        var searchBoxContainerInterval = setInterval(function () {
+            var children = $('.ms-compositeHeader-searchBoxContainer').children();
+            if (children.length > 0) {
+                var searchBoxContainer = $('.ms-compositeHeader-searchBoxContainer').prop("outerHTML");
+                $('.fuse-search-container').html(searchBoxContainer);
+                clearInterval(searchBoxContainerInterval);
+                $(".fuse-search-container form").submit(function (event) {
+                    var searchValue = $(".fuse-search-container form input").val();
+                    window.location.href = webAbsoluteUrl + '/_layouts/15/search.aspx/siteall?q=' + searchValue;
+                    event.preventDefault();
+                });
+                $('.ms-compositeHeader').remove();
+            }
+        }, 100);
     }
     private _renderStockSlides(): void {
         $('.fuse-stock-slides').empty();
-        var stockJsonLocation = this.context.pageContext.web.absoluteUrl + this.properties.stockJsonFileRelativeUri;
+        var stockJsonLocation = this.context.pageContext.site.absoluteUrl + this.properties.stockJsonFileRelativeUri;
         $(".fuse-stock-slides").load(stockJsonLocation, function () {
             ($('.fuse-stock-slides') as any).cycle({ timeout: 3000, speed: 700, fx: 'scrollDown', next: ".fuse-stock-slides", pause: 1 });
         });
@@ -231,7 +252,7 @@ export default class HeaderApplicationCustomizer
             var timeZoneCodes = firstWeatherItem.split(',');
             var timeZoneTimes = this._getCurrentTimeByIdentifier(timeZoneCodes);
             var arrTimes = timeZoneTimes.split(',');
-            var weatherJsonLocation = this.context.pageContext.web.absoluteUrl + this.properties.weatherJsonFilerelativeUri;
+            var weatherJsonLocation = this.context.pageContext.site.absoluteUrl + this.properties.weatherJsonFilerelativeUri;
             $.getJSON(weatherJsonLocation, function (data) {
                 var weatherImageUrl = "https://openweathermap.org/img/w/";
                 if (data !== undefined && data.list !== undefined) {
